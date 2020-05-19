@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center">
+        <h2 class="mt-2">Questions from platforms for {{tag}}</h2>
+        <br/>
+        <table style="text-align: center;">
+        <tr>
+        <td style="vertical-align:top;">
+        {% if cf_data %}
+            <div class="container">
+                <h3 style="color:blueviolet;">Codeforces </h3>
+                    {% for q in cf_data %}
+                        <div class="well">
+                            <p style="text-align: center; font-size: 20px;">{{q.qname}} &nbsp;&nbsp;</p>
+                            <a style="text-align: left;" href={{q.ques_link}} target="_blank" >Question</a>
+                            <a style="text-align: right;" href={{q.sol_link}} target="_blank" >Editorial</a>
+                        </div> 
+                        </br> 
+                    {% endfor %}
+            </div>
+        {% endif %}
+        </td>
+        <td style="vertical-align:top;">
+        {% if cc_data %}
+            <div class="container">
+                <h3 style="color:blueviolet;">Codechef </h3>
+                    {% for q in cc_data %}
+                        <div class="well" >
+                            <p style="text-align: center; font-size: 20px;">{{q.qname}} &nbsp;&nbsp;</p>
+                            <a style="text-align: left;" href="{{q.ques_link}}" target="_blank" >Question</a>
+                            <a style="text-align: right;" href="{{q.sol_link}}" target="_blank" >Editorial</a>
+                        </div>
+                        </br>
+                    {% endfor %}
+            </div>
+        {% endif %}
+        </td>
+        </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

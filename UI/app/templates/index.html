@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="section-headline text-center">
+        <h5>Welcome, {{ current_user.name }}</h5>
+    </div>
+  </div>
+</div>
+<br/><br/><br/>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="section-headline text-center">
+      <h3><a href="{{ url_for('find_questiontag') }}">Get tags for your Questions!</a></h3>
+      <br/><br/>
+      <h3><a href="{{ url_for('get_tagquestions') }}">Get questions for required tag!!</a></h3>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+  
