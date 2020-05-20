@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center">
+        <h4 class="mt-2">Tag(s) for given question</h4>
+        <br/>
+        <div class="container">
+                {% if tags %}
+                    <p style="text-align: center; font-size: 25px; color:green;">{{tags}}</p>
+                {% else %}
+                    <p style="text-align: center; font-size: 25px;"> Sorry, not able to find tags :(</p>
+                {% endif %}
+        </div>
+        </br>
+        <p style="text-align: center; font-size: 15px;">{{question}}</p>
+        </br>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -5,14 +5,14 @@
 <div class="row">
   <div class="col-md-12">
     <div class="text-center">
-        <h2 class="mt-2">Questions from platforms for {{tag}}</h2>
+        <h2 class="mt-2">Questions for '{{tag}}'</h2>
         <br/>
         <table style="text-align: center;">
         <tr>
         <td style="vertical-align:top;">
         {% if cf_data %}
             <div class="container">
-                <h3 style="color:blueviolet;">Codeforces </h3>
+                <h3 style="color:green;">Codeforces </h3>
                     {% for q in cf_data %}
                         <div class="well">
                             <p style="text-align: center; font-size: 20px;">{{q.qname}} &nbsp;&nbsp;</p>
@@ -27,7 +27,7 @@
         <td style="vertical-align:top;">
         {% if cc_data %}
             <div class="container">
-                <h3 style="color:blueviolet;">Codechef </h3>
+                <h3 style="color:green;">Codechef </h3>
                     {% for q in cc_data %}
                         <div class="well" >
                             <p style="text-align: center; font-size: 20px;">{{q.qname}} &nbsp;&nbsp;</p>
@@ -44,9 +44,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 
 {% endblock %}

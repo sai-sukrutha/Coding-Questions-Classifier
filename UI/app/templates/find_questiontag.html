@@ -11,7 +11,7 @@
           {{ form.hidden_tag() }}
           <div class="form-group">
               {{ form.question.label }}<br>
-              {{ form.question(size=100) }}
+              {{ form.question(cols="50", rows="10") }}
               {% for error in form.question.errors %}
               <span style="color: red;">[{{ error }}]</span>
               {% endfor %}

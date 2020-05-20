@@ -4,6 +4,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextA
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 from werkzeug.utils import secure_filename
+from wtforms.widgets import TextArea
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -32,7 +33,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 class QuestionForm(FlaskForm):
-    question = TextAreaField('Enter your Question', validators=[DataRequired(),Length(max=1000)])
+    question = TextAreaField('Enter your Question', widget=TextArea(), validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 

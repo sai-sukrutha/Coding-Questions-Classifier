@@ -5,7 +5,9 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Questions, QuestionTags
 from werkzeug.urls import url_parse
 from datetime import datetime
+
 from config import Config
+from app import model_predictions
 
 class Questiondata:
     def __init__(self, qname, ques_link, sol_link):
@@ -80,12 +82,21 @@ def register():
 @app.route('/find_questiontag', methods=['GET', 'POST'])
 @login_required
 def find_questiontag():
-    #TODO
     form = QuestionForm()
     if form.validate_on_submit():
         question = form.question.data
-        print(question)
-        #TODO - print tags of question from model
+        # print(question)
+        tags = model_predictions.run(question)
+        tags = tags[0].strip('[]')
+        tags_list = tags.split(',')
+
+        final_tags = []
+        for tag in tags_list:
+            final_tags.append(tag.strip().strip('\''))
+
+        tags_str = ',  '.join(final_tags)
+
+        return render_template('print_questiontag.html',tags=tags_str,question=question)
     return render_template('find_questiontag.html', form=form)
 
 

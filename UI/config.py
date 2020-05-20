@@ -19,5 +19,7 @@ class Config(object):
     codeforces_question_link = "https://codeforces.com/contest/"
     codeforces_solution_link = "https://codeforces.com/contest/"
 
-    # codeforces_question_link = "https://codeforces.com/contest/1355/problem/F"
-    # codeforces_solution_link = "https://codeforces.com/contest/1355/submission/80381324"
+    MODEL_PATH = basedir + '/modeldata/'
+    MODEL_FILE = MODEL_PATH + 'bert-model.pkl'
+    LE_FILE = MODEL_PATH + 'le.pkl'
+    LB_FILE = MODEL_PATH + 'lb.pkl'
